@@ -1,7 +1,7 @@
-use rand::Rng;
+//use rand::Rng;
 
-extern crate rand;
+//extern crate rand;
 fn main() {
-    let num=rand::thread_rng().gen_range(0..2);
-    println!("number is {0}",num);
+    let mut grid=[[0u32;4];4];
+    grid[0][1]=1;
 }
