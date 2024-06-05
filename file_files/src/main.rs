@@ -1,10 +1,15 @@
-use std::{any::Any, fs::{self, File}, io::{Read, Write}};
-
+use std::fs;
 fn main() {
-    let res=File::create_new("helloworld.txt");
-    println!("{0}",res.is_err());
-    let res=fs::remove_file("./hello world");
-    println!("{0}",res.is_err());
-    
-    
+   let res=remove(String::from("hello world.txt"));
+   println!("{0}",res.is_ok());
+   let gg=|name:String|-> std::io::Result<()> {
+    fs::remove_file(name)?;
+    Ok(())
+};
+println!("{0}",gg(String::from("hello world.txt")).is_ok());
+  
+}
+fn remove(name:String) -> std::io::Result<()> {
+    fs::remove_file(name)?;
+    Ok(())
 }
