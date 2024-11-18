@@ -16,7 +16,7 @@ fn main() -> Result<(),Box<dyn Error>>{
         counter+=1;
         let record=data.ok().unwrap();
         let userdata=Company{
-            name:record.iter().nth(2).unwrap().to_string().replace('"',' '),
+            name:record.iter().nth(2).unwrap().to_string().replace('"',''),
             email:record.iter().nth(3).unwrap().to_string(),
             webaddress:record.iter().nth(12).unwrap().to_string(),
         };
