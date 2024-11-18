@@ -2,7 +2,7 @@
 extern crate csv;
 use std::{error::Error, fs::File};
 
-#[derive(Debug)]
+
 struct Company{
  name:String,
  email:String,
@@ -16,11 +16,11 @@ fn main() -> Result<(),Box<dyn Error>>{
         counter+=1;
         let record=data.ok().unwrap();
         let userdata=Company{
-            name:record.iter().nth(2).unwrap().to_string().replace('"',''),
+            name:record.iter().nth(2).unwrap().to_string(),
             email:record.iter().nth(3).unwrap().to_string(),
             webaddress:record.iter().nth(12).unwrap().to_string(),
         };
-        println!("{:?}",userdata);
+        println!("name: {0}, email: {1}, webaddress: {2}",userdata.name,userdata.email,userdata.webaddress);
         if counter==10{
             break;
         }
