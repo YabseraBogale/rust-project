@@ -1,5 +1,6 @@
-create table UserData(
-	companyName varchar(30) not null UNIQUE,
-	companyEmail varchar(30) not null UNIQUE,
-	companyWebAdress varchar(30) not null UNIQUE
+create table userdata(
+    Name varchar(30) not null,
+    Email varchar(30) not null UNIQUE,
+    WebAddress varchar(30) not null
+
 );
