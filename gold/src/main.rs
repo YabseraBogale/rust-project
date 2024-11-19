@@ -9,7 +9,7 @@ struct Userdata{
 }
 fn main() -> Result<(),Box<dyn Error>>{
     let connection=Connection::open("gold.db").unwrap();
-    let file=File::open("SD.csv")?;
+    let file=File::open("SC.csv")?;
     let mut rawdata=csv::Reader::from_reader(file);
     let mut counter=0;
     let mut sucess=0;
