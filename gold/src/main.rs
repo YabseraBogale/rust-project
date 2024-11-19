@@ -1,3 +1,5 @@
+extern crate sqlite;
+
 fn main() {
-    println!("Hello, world!");
+    sqlite::open("gold.db").unwrap();
 }
