@@ -1,3 +1,4 @@
 target/
 Cargo.lock
 SD.csv
+gold.db
