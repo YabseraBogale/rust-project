@@ -12,6 +12,7 @@ fn main() -> Result<(),Box<dyn Error>>{
     let file=File::open("SD.csv")?;
     let mut rawdata=csv::Reader::from_reader(file);
     let mut counter=0;
+    let mut sucess=0;
     for data in rawdata.records(){
         counter+=1;
         let record=data.ok().unwrap();
@@ -22,7 +23,10 @@ fn main() -> Result<(),Box<dyn Error>>{
         };
         let result=connection.execute("Insert into userdata(name,email,webaddress) values(?1,?2,?3)",(userdata.name,userdata.email,userdata.webaddress));
         match result {
-            Ok(result)=> println!("result {}",result),
+            Ok(result)=> {
+                sucess+=result as i32;
+                println!("counter: {}",sucess);
+            },
             Err(error)=> println!("result {}",error),
         }
         if counter%1000==0{
