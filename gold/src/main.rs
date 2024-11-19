@@ -1,6 +1,6 @@
 extern crate csv;
 use rusqlite::{Connection,Result};
-use std::{error::Error,fs::File};
+use std::{time,thread,error::Error,fs::File};
 #[derive(Debug)]
 struct Userdata{
     name: String,
@@ -25,8 +25,8 @@ fn main() -> Result<(),Box<dyn Error>>{
             Ok(result)=> println!("result {}",result),
             Err(error)=> println!("result {}",error),
         }
-        if counter==5{
-            break;
+        if counter%1000==0{
+            thread::sleep(time::Duration::from_secs(3));
         }
 
     }
